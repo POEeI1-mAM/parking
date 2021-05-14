@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	省去Dao实现类,满足以下条件:
+	~namespace必须是dao的包名+接口名
+	~sql语句的id必须和方法名一样
+	~sql语句的参数类型必须和方法的参数类型一致
+	~sql语句的返回值类型必须和方法的返回值类型一致
+ -->
+<mapper namespace="com.carlinfo.parking.users.dao.IAAdminsDao">
+	<!-- 保存一条记录;记着:要返回主键 -->
+	<insert id="saveOne" parameterType="com.carlinfo.parking.users.pojo.AAdmins" 
+		useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+		INSERT INTO admins (ssoId, email, trueName, status, createTime, updateTime, lastLoginTime) 
+		VALUES 
+		(#{ssoId},#{email},#{trueName},#{status},#{createTime},#{updateTime},#{lastLoginTime});
+	</insert>
+	
+	<!-- 更新一条记录 -->
+	<update id="updateOne" parameterType="com.carlinfo.parking.users.pojo.AAdmins" >
+		update admins 
+		<set>
+			ssoId=#{ssoId},email=#{email},trueName=#{trueName},status=#{status},createTime=#{createTime},updateTime=#{updateTime},
+			lastLoginTime=#{lastLoginTime},
+		</set>
+		<where>
+			id = #{id} 
+		</where>
+	</update>
+
+	<!-- 根据id查询记录 -->
+	<select id="findOne" parameterType="map" resultType="com.carlinfo.parking.users.pojo.AAdmins">
+		select * from admins 
+		<where>
+			<choose>
+				<when test="ssoId != null">
+					ssoId = #{ssoId} 
+				</when>
+				<otherwise>
+					id = #{id} 
+				</otherwise>
+			</choose>
+		</where>
+	</select>
+	
+	<!-- 查询多条记录 -->
+	<select id="findCondList" parameterType="map" resultType="com.carlinfo.parking.users.pojo.AAdmins">
+		select * from admins 
+		<where>
+			<!-- 当参数类型为map是,#{map的键},条件的判断也指的是map的键 -->
+			<!-- 只有是字符串的时候才能加上!= ''的判断 -->
+			<if test="keyword != null and keyword != ''">
+				and ( email like #{keyword} )
+			</if>
+			<if test="status != null">
+				and status = #{status} 
+			</if>
+			<if test="stDate != null and edDate != null">
+				<!--  如果XML有特殊含义的标签,要用CDATA转换 -->
+				<![CDATA[
+					and createTime >= #{stDate} and createTime < #{edDate}
+				]]>
+			</if>
+		</where>
+		<!-- 排序 -->
+		<choose>
+			<when test="orderBy == 'idDesc'">
+				order by id desc 
+			</when>
+			<otherwise>
+				order by createTime desc 
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 删除一条记录 -->
+	<delete id="deleteOne" parameterType="map">
+		delete from admins 
+		<where>
+			id = #{id} 
+		</where>
+	</delete>
+	
+	<!-- 按照id查询管理员 -->
+	<select id="selectById" parameterType="map" resultType="com.carlinfo.parking.users.pojo.AAdmins">
+		select * from admins where id = #{id}
+	</select>
+</mapper>

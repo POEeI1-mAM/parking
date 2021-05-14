@@ -1,0 +1,195 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.carlinfo</groupId>
+  <artifactId>parking</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>parking</name>
+  <description>parking</description>
+  <modules>
+  	<module>parking-common</module>
+  	<module>parking-service</module>
+  	<module>parking-web</module>
+  </modules>
+  
+  <properties>
+		<spring.verison>5.0.4.RELEASE</spring.verison>
+	</properties>
+	
+	<!-- 依赖管理器:在父项目中写上版本号
+		在子项目中不用写版本号
+		目的:统一版本号
+	 -->
+	 <!-- 写到此项目的配置,所有的子项目都继承自本项目 -->
+	<!-- 
+		dependencyManagement:依赖管理器;凡是在此标签下面的jar包不会真正的编译打包到所有子项目中;
+			只是一个定义的过程;
+			就是为了统一所有的版本号;
+			在子项目里面使用dependencies引用此jar包时,版本号千万不要写;虽然写了有警告;
+		项目的父子关系也有一个好处,就是依赖也可以传递;
+	 -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- 工具包 -->
+			<!-- log4j -->
+			<dependency>
+			    <groupId>org.apache.logging.log4j</groupId>
+			    <artifactId>log4j-core</artifactId>
+			    <version>2.10.0</version>
+			</dependency>
+			<!-- junit -->
+			<dependency>
+			    <groupId>junit</groupId>
+			    <artifactId>junit</artifactId>
+			    <version>4.12</version>
+			    <!--
+					http://blog.csdn.net/mafan121/article/details/52981864
+					scope:范围;在哪种情况下使用此包;即依赖的项目会参与到当前项目的编译、运行、测试以及打包发布，是一个比较强的依赖范围
+					compile:默认的scope;编译的时候要用此包
+					provided:跟compile相似;
+					runtime:不作用在编译时，但会作用在运行和测试时
+					test:在运行测试的时候会有此包;表示dependency作用在测试时，不作用在运行时。 只在测试时使用
+					system:但是在系统中要以外部JAR包的形式提供
+				 -->
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+			    <groupId>com.alibaba</groupId>
+			    <artifactId>fastjson</artifactId>
+			    <version>1.2.46</version>
+			</dependency>
+			<dependency>
+			    <groupId>javax.servlet</groupId>
+			    <artifactId>jstl</artifactId>
+			    <version>1.2</version>
+			</dependency>
+			<dependency>
+			    <groupId>commons-fileupload</groupId>
+			    <artifactId>commons-fileupload</artifactId>
+			    <version>1.3.3</version>
+			</dependency>
+			<dependency>
+			    <groupId>javax.servlet</groupId>
+			    <artifactId>javax.servlet-api</artifactId>
+			    <version>3.1.0</version>
+			</dependency>
+			
+			<!-- 数据库连接开始 -->
+			<dependency>
+			    <groupId>org.mybatis</groupId>
+			    <artifactId>mybatis</artifactId>
+			    <version>3.4.6</version>
+			</dependency>
+			<!-- mybatis整合Spring需要的包 -->
+			<dependency>
+			    <groupId>org.mybatis</groupId>
+			    <artifactId>mybatis-spring</artifactId>
+			    <version>1.3.2</version>
+			</dependency>
+			<!-- mybatis分页插件 -->
+			<dependency>
+			    <groupId>com.github.pagehelper</groupId>
+			    <artifactId>pagehelper</artifactId>
+			    <version>5.1.2</version>
+			</dependency>
+			<!-- jdbc连接Mysql的包,使用5系列 -->
+			<dependency>
+			    <groupId>mysql</groupId>
+			    <artifactId>mysql-connector-java</artifactId>
+			    <version>5.1.45</version>
+			</dependency>
+			<!-- 连接池 -->
+			<dependency>
+			    <groupId>com.alibaba</groupId>
+			    <artifactId>druid</artifactId>
+			    <version>1.1.9</version>
+			</dependency>
+			<!-- 数据库连接结束 -->
+			
+			<!-- Spring配置开始 -->
+			<!-- aspectjweaver -->
+			<dependency>
+			    <groupId>org.aspectj</groupId>
+			    <artifactId>aspectjweaver</artifactId>
+			    <version>1.8.13</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-context</artifactId>
+			    <version>${spring.verison}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-jdbc</artifactId>
+			    <version>${spring.verison}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-context-support</artifactId>
+			    <version>${spring.verison}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-webmvc</artifactId>
+			    <version>${spring.verison}</version>
+			</dependency>
+			<!-- Spring配置结束 -->
+			</dependencies>
+	</dependencyManagement>
+	
+	<!-- 配置一下编译环境 -->
+	<build>
+		<plugins>
+			<!-- 设置一下JDK的版本 版本号可以不用填写,默认就是最新版本 groupId:公司的域名,按照groupId到本地仓库中去找此jar包 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- 插件的配置 -->
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- 运行的时候(打包)跳过测试执行所有test目录下面的代码 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<!-- 在maven install不再执行测试类 -->
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<!-- 将源代码打包,打成一个jar包 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<!-- 源码打一个jar包 -->
+				<configuration>
+					<!-- 附件 -->
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<!-- 执行 -->
+					<execution>
+						<!-- 阶段 -->
+						<phase>compile</phase>
+						<!-- 目标 -->
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- 设置配置文件的编码 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

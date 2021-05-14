@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd"
+    default-autowire="byName">
+   <!-- 让Spring和Mybatis结合起来呢?
+		为什么在Spring配置文件中的${}不好使用,mybatis-spring的jar
+		SqlSessionFactoryBean一定不能叫做sqlSessionFactory;不能使用按照名字自动装配;不填写或者改成其它的也可以
+	 -->
+	<bean id="aaa" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 配置文件的位置 -->
+		<property name="configLocation" value="classpath:mybatis.cfg.xml"/>
+		<!-- Mapper文件的位置
+			为啥要把Mapper从Mybatis的配置文件挪到Spring的配置文件呢?
+			在Spring的配置文件中可以写*
+		 -->
+		<property name="mapperLocations" value="classpath*:com/carlinfo/parking/*/dao/*Mapper.xml"/>
+	</bean>
+	
+	<!-- 扫描Dao这个类 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 使用自动装配为sqlsessionFacotry赋值 -->
+		<!-- 告诉哪些包下面的类,扫描dao -->
+		<property name="basePackage" value="com.carlinfo"/>
+	</bean>
+	
+	<!-- Spring事务管理器开始 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"/>
+	
+	<!-- 通知类型 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 以save开头的,要开启事务,
+				propagation方法a调用方法b,只要其中的一个方法抛异常了,整体全部回滚
+				rollback-for:默认抛runTimeException要回滚,改成只要抛异常,都回滚 -->
+			<tx:method name="save*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="*" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- aop -->
+	<aop:config>
+		<!-- 切入点,定义哪些包下面的哪些类执行通知里面的代码 -->
+		<aop:pointcut expression="execution(* com.carlinfo.*.service.*.*(..))" id="pointcut"/>
+		<!-- 织入:将切入点和通知关联起来 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+	</aop:config>
+	<!-- Spring事务管理器结束 -->
+</beans>

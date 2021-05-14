@@ -1,0 +1,56 @@
+2018-04-09 08:59:54.208 INFO [main][AbstractApplicationContext.java:589] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@71c8becc: startup date [Mon Apr 09 08:59:54 CST 2018]; root of context hierarchy
+2018-04-09 08:59:54.376 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-datasource.xml]
+2018-04-09 08:59:54.631 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-mybatis.xml]
+2018-04-09 08:59:54.762 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-common\target\classes\spring\applicationContext-common.xml]
+2018-04-09 08:59:56.286 INFO [main][Log4j2Impl.java:106] - {dataSource-1} inited
+2018-04-09 08:59:57.772 INFO [main][BaseTest.java:30] - ==初始化==
+2018-04-09 08:59:57.775 INFO [main][UsersServiceTest.java:38] - usersService:com.carlinfo.parking.users.service.impl.UsersServiceImpl@7a527389
+2018-04-09 08:59:57.776 INFO [main][UsersServiceTest.java:40] - parkingsService:com.carlinfo.parking.users.service.impl.ParkingsServiceImpl@485a3466
+2018-04-09 08:59:57.791 INFO [main][BaseTest.java:45] - ==after==
+2018-04-09 08:59:57.794 INFO [main][AbstractApplicationContext.java:989] - Closing org.springframework.context.support.ClassPathXmlApplicationContext@71c8becc: startup date [Mon Apr 09 08:59:54 CST 2018]; root of context hierarchy
+2018-04-09 08:59:57.802 INFO [main][Log4j2Impl.java:106] - {dataSource-1} closed
+2018-04-09 09:01:47.366 INFO [main][AbstractApplicationContext.java:589] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@71c8becc: startup date [Mon Apr 09 09:01:47 CST 2018]; root of context hierarchy
+2018-04-09 09:01:47.469 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-datasource.xml]
+2018-04-09 09:01:47.692 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-mybatis.xml]
+2018-04-09 09:01:47.778 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-common\target\classes\spring\applicationContext-common.xml]
+2018-04-09 09:01:49.298 INFO [main][Log4j2Impl.java:106] - {dataSource-1} inited
+2018-04-09 09:01:50.419 INFO [main][BaseTest.java:30] - ==初始化==
+2018-04-09 09:01:50.422 INFO [main][UsersServiceTest.java:38] - usersService:com.carlinfo.parking.users.service.impl.UsersServiceImpl@150ab4ed
+2018-04-09 09:01:50.423 INFO [main][UsersServiceTest.java:40] - parkingsService:com.carlinfo.parking.users.service.impl.ParkingsServiceImpl@3c435123
+2018-04-09 09:01:50.667 DEBUG [main][BaseJdbcLogger.java:159] - ==>  Preparing: INSERT INTO parking (createId,regionId,name,local,status,status1,hourPrice,dayPrice, image,content,sumCarport,useCarport,leftCarport, createTime, updateTime) VALUES (?,?,?,?,?,?,?,?, ?,?,?,?,?,??); 
+2018-04-09 09:01:50.779 DEBUG [main][BaseJdbcLogger.java:159] - ==> Parameters: 0(Integer), 0(Integer), 润泰停车场(String), null, 0(Byte), 0(Byte), 0.0(Double), 0.0(Double), null, null, 0(Integer), 0(Integer), 0(Integer), 2018-04-09 09:01:50.423(Timestamp), 2018-04-09 09:01:50.423(Timestamp)
+2018-04-09 09:01:51.027 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-04-09 09:01:51.115 INFO [main][SQLErrorCodesFactory.java:128] - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-04-09 09:01:51.126 INFO [main][BaseTest.java:45] - ==after==
+2018-04-09 09:01:51.126 INFO [main][AbstractApplicationContext.java:989] - Closing org.springframework.context.support.ClassPathXmlApplicationContext@71c8becc: startup date [Mon Apr 09 09:01:47 CST 2018]; root of context hierarchy
+2018-04-09 09:01:51.137 INFO [main][Log4j2Impl.java:106] - {dataSource-1} closed
+2018-04-09 09:13:31.910 INFO [main][AbstractApplicationContext.java:589] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@71c8becc: startup date [Mon Apr 09 09:13:31 CST 2018]; root of context hierarchy
+2018-04-09 09:13:32.009 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-datasource.xml]
+2018-04-09 09:13:32.339 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-mybatis.xml]
+2018-04-09 09:13:32.586 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-common\target\classes\spring\applicationContext-common.xml]
+2018-04-09 09:13:33.832 INFO [main][Log4j2Impl.java:106] - {dataSource-1} inited
+2018-04-09 09:13:34.851 INFO [main][BaseTest.java:30] - ==初始化==
+2018-04-09 09:13:34.854 INFO [main][UsersServiceTest.java:38] - usersService:com.carlinfo.parking.users.service.impl.UsersServiceImpl@150ab4ed
+2018-04-09 09:13:34.855 INFO [main][UsersServiceTest.java:40] - parkingsService:com.carlinfo.parking.users.service.impl.ParkingsServiceImpl@3c435123
+2018-04-09 09:13:34.904 DEBUG [main][BaseJdbcLogger.java:159] - ==>  Preparing: INSERT INTO parking (createId,regionId,name,local,status,status1,hourPrice,dayPrice, image,content,sumCarport,useCarport,leftCarport, createTime, updateTime) VALUES (?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?); 
+2018-04-09 09:13:34.991 DEBUG [main][BaseJdbcLogger.java:159] - ==> Parameters: 0(Integer), 0(Integer), 润泰停车场(String), null, 0(Byte), 0(Byte), 0.0(Double), 0.0(Double), null, null, 0(Integer), 0(Integer), 0(Integer), 2018-04-09 09:13:34.855(Timestamp), 2018-04-09 09:13:34.855(Timestamp)
+2018-04-09 09:13:35.063 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-04-09 09:13:35.103 INFO [main][SQLErrorCodesFactory.java:128] - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-04-09 09:13:35.110 INFO [main][BaseTest.java:45] - ==after==
+2018-04-09 09:13:35.111 INFO [main][AbstractApplicationContext.java:989] - Closing org.springframework.context.support.ClassPathXmlApplicationContext@71c8becc: startup date [Mon Apr 09 09:13:31 CST 2018]; root of context hierarchy
+2018-04-09 09:13:35.119 INFO [main][Log4j2Impl.java:106] - {dataSource-1} closed
+2018-04-09 09:14:31.076 INFO [main][AbstractApplicationContext.java:589] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@71c8becc: startup date [Mon Apr 09 09:14:31 CST 2018]; root of context hierarchy
+2018-04-09 09:14:31.180 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-datasource.xml]
+2018-04-09 09:14:31.412 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-mybatis.xml]
+2018-04-09 09:14:31.499 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [F:\代码\parking\parking-common\target\classes\spring\applicationContext-common.xml]
+2018-04-09 09:14:32.708 INFO [main][Log4j2Impl.java:106] - {dataSource-1} inited
+2018-04-09 09:14:33.751 INFO [main][BaseTest.java:30] - ==初始化==
+2018-04-09 09:14:33.755 INFO [main][UsersServiceTest.java:38] - usersService:com.carlinfo.parking.users.service.impl.UsersServiceImpl@3c435123
+2018-04-09 09:14:33.756 INFO [main][UsersServiceTest.java:40] - parkingsService:com.carlinfo.parking.users.service.impl.ParkingsServiceImpl@50fe837a
+2018-04-09 09:14:33.818 DEBUG [main][BaseJdbcLogger.java:159] - ==>  Preparing: INSERT INTO parking (createId,regionId,name,local,status,status1,hourPrice,dayPrice, image,content,sumCarport,useCarport,leftCarport, createTime, updateTime) VALUES (?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?); 
+2018-04-09 09:14:33.891 DEBUG [main][BaseJdbcLogger.java:159] - ==> Parameters: 0(Integer), 0(Integer), 润泰停车场(String), nanyang(String), 0(Byte), 0(Byte), 0.0(Double), 0.0(Double), null, null, 0(Integer), 0(Integer), 0(Integer), 2018-04-09 09:14:33.756(Timestamp), 2018-04-09 09:14:33.756(Timestamp)
+2018-04-09 09:14:33.988 DEBUG [main][BaseJdbcLogger.java:159] - <==    Updates: 1
+2018-04-09 09:14:34.426 INFO [main][UsersServiceTest.java:222] - --结果->{code=0, data={effect=1, id=1}, info=成功}
+2018-04-09 09:14:34.427 INFO [main][BaseTest.java:45] - ==after==
+2018-04-09 09:14:34.428 INFO [main][AbstractApplicationContext.java:989] - Closing org.springframework.context.support.ClassPathXmlApplicationContext@71c8becc: startup date [Mon Apr 09 09:14:31 CST 2018]; root of context hierarchy
+2018-04-09 09:14:34.435 INFO [main][Log4j2Impl.java:106] - {dataSource-1} closed

@@ -1,0 +1,27 @@
+/*
+	~如何读取json文件的内容
+	~如何将内容变成json的格式
+*/
+{
+	"info":
+	{
+		"0":"成功",
+		"1":"失败"
+	},
+	/* 系统配置 */
+	"sysConfig":
+	{
+		/* 用户中心登陆地址 */
+		"loginPath":"http://localhost:8080/usercenter/NoLoginBackServlet?method=login",
+		/* 验证管理员的token地址 */
+		"CommonInfo":"http://localhost:8080/usercenter/CommonInfoServlet",
+		/* 绝对路径-相对路径
+			tomcat中web项目的路径
+		 */
+		"path_webpath":"F:/代码/parking/parking-web/parking-web-back/src/main/webapp/////",
+		/* 网络路径-绝对路径 */
+		"path_website":"http://localhost:10001/shop-web-back/",
+		/* 相对路径一部分 */
+		"path_rela":"/uploadfile/"
+	}
+}
