@@ -54,3 +54,14 @@
 2018-04-09 09:14:34.427 INFO [main][BaseTest.java:45] - ==after==
 2018-04-09 09:14:34.428 INFO [main][AbstractApplicationContext.java:989] - Closing org.springframework.context.support.ClassPathXmlApplicationContext@71c8becc: startup date [Mon Apr 09 09:14:31 CST 2018]; root of context hierarchy
 2018-04-09 09:14:34.435 INFO [main][Log4j2Impl.java:106] - {dataSource-1} closed
+2018-04-09 10:15:11.068 INFO [main][AbstractApplicationContext.java:589] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@60611244: startup date [Mon Apr 09 10:15:11 CST 2018]; root of context hierarchy
+2018-04-09 10:15:11.230 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [D:\test\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-datasource.xml]
+2018-04-09 10:15:11.562 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [D:\test\parking\parking-service\parking-service-impl\target\classes\spring\applicationContext-mybatis.xml]
+2018-04-09 10:15:11.798 INFO [main][XmlBeanDefinitionReader.java:316] - Loading XML bean definitions from file [D:\test\parking\parking-common\target\classes\spring\applicationContext-common.xml]
+2018-04-09 10:15:14.512 INFO [main][Log4j2Impl.java:106] - {dataSource-1} inited
+2018-04-09 10:15:16.198 INFO [main][BaseTest.java:30] - ==初始化==
+2018-04-09 10:15:16.202 INFO [main][OrdersServiceTest.java:31] - ordersService:com.carlinfo.parking.orders.service.impl.OrdersServiceImpl@29e6eb25
+2018-04-09 10:15:16.524 INFO [main][OrdersServiceTest.java:45] - --结果->{code=0, data={effect=1, id=2}, info=成功}
+2018-04-09 10:15:16.526 INFO [main][BaseTest.java:45] - ==after==
+2018-04-09 10:15:16.526 INFO [main][AbstractApplicationContext.java:989] - Closing org.springframework.context.support.ClassPathXmlApplicationContext@60611244: startup date [Mon Apr 09 10:15:11 CST 2018]; root of context hierarchy
+2018-04-09 10:15:16.534 INFO [main][Log4j2Impl.java:106] - {dataSource-1} closed
