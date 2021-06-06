@@ -15,6 +15,11 @@ import com.carlinfo.parking.users.pojo.AAdmins;
 import com.carlinfo.parking.users.service.IParkingsService;
 import com.carlinfo.parking.users.service.IUsersService;
 
+/**
+ * 订单的测试类
+ * @author 张培基
+ *
+ */
 public class OrdersServiceTest extends BaseTest
 {
 	private IOrdersService ordersService;
