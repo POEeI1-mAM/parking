@@ -20,6 +20,18 @@ public class AOrdersHistory
 
 	/* 字符串描述 */
 	private String statusStr;
+	/* 订单表 */
+	private AOrders orders ; 
+
+	public AOrders getOrders()
+	{
+		return orders;
+	}
+
+	public void setOrders(AOrders orders)
+	{
+		this.orders = orders;
+	}
 
 	public int getId()
 	{

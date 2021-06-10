@@ -35,6 +35,11 @@
 			<appender-ref ref="System" />
 			<appender-ref ref="Console" />
 		</logger>
+		
+		<logger name="com.carlinfo.parking.orders" level="debug" additivity="false">
+			<appender-ref ref="System" />
+			<appender-ref ref="Console" />
+		</logger>
 
 		<!-- 外部日志,只记录到文件中,不记录到控制台中 -->
 		<logger name="SystemLog" level="info" additivity="false">

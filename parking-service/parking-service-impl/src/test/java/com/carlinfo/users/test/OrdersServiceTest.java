@@ -1,6 +1,8 @@
 package com.carlinfo.users.test;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,9 +13,7 @@ import com.carlinfo.common.util.ConstatFinalUtil;
 import com.carlinfo.parking.orders.pojo.AOrders;
 import com.carlinfo.parking.orders.pojo.AOrdersHistory;
 import com.carlinfo.parking.orders.service.IOrdersService;
-import com.carlinfo.parking.users.pojo.AAdmins;
-import com.carlinfo.parking.users.service.IParkingsService;
-import com.carlinfo.parking.users.service.IUsersService;
+import com.carlinfo.parking.users.pojo.AUsers;
 
 /**
  * 订单的测试类
@@ -62,5 +62,34 @@ public class OrdersServiceTest extends BaseTest
 		ordersHistory.setUpdateTime(new Date());
 		JSONObject resultJSON = this.ordersService.saveOneOrdersHistoryService(ordersHistory);
 		ConstatFinalUtil.LOGGER.info("--结果->{}",resultJSON);
+	}
+	
+	/**
+	 * 查询一条订单
+	 */
+	@Test
+	public void findOneOrdersService()
+	{
+		Map<String, Object> condMap = new HashMap<String, Object>();
+		condMap.put("id", "1");
+		AOrders orders =  this.ordersService.findOneOrdersService(condMap);
+		ConstatFinalUtil.LOGGER.info("--结果orders->id:{},name:{}",orders.getId(),orders.getUserName());
+	
+		AUsers users = orders.getUsers() ; 
+		ConstatFinalUtil.LOGGER.info("--结果users->id:{},name:{}",users.getId(),users.getEmail());
+	}
+	
+	/**
+	 * 查询一条订单
+	 */
+	@Test
+	public void findOneOrdersHistoryService()
+	{
+		Map<String, Object> condMap = new HashMap<String, Object>();
+		condMap.put("id", "1");
+		AOrdersHistory ordersHistory =  this.ordersService.findOneOrdersHistoryService(condMap);
+		ConstatFinalUtil.LOGGER.info("--结果ordersHistory->id:{},name:{}",ordersHistory.getId(),ordersHistory.getContent());
+		AOrders orders =  ordersHistory.getOrders();
+		ConstatFinalUtil.LOGGER.info("--结果orders->id:{},name:{}",orders.getId(),orders.getUserName());
 	}
 }

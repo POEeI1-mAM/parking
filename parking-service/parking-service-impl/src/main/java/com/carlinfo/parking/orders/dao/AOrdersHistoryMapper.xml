@@ -10,6 +10,13 @@
 	~sql语句的返回值类型必须和方法的返回值类型一致
  -->
 <mapper namespace="com.carlinfo.parking.orders.dao.IAOrdersHistoryDao">
+	<!-- 配置关联关系到 -->
+	<resultMap type="com.carlinfo.parking.orders.pojo.AOrdersHistory" id="resultMap">
+		<result column="orderId" property="orderId"/>
+		<!-- 订单 -->
+		<collection property="orders" column="orderId" javaType="com.carlinfo.parking.orders.pojo.AOrders"
+			select="com.carlinfo.parking.orders.dao.IAOrdersDao.selectById"/>
+	</resultMap>
 	<!-- 保存一条记录;记着:要返回主键 -->
 	<insert id="saveOne" parameterType="com.carlinfo.parking.orders.pojo.AOrdersHistory" 
 		useGeneratedKeys="true" keyColumn="id" keyProperty="id">
@@ -30,7 +37,7 @@
 	</update>
 
 	<!-- 根据id查询记录 -->
-	<select id="findOne" parameterType="map" resultType="com.carlinfo.parking.orders.pojo.AOrdersHistory">
+	<select id="findOne" parameterType="map" resultMap="resultMap">
 		select * from order_history 
 		<where>
 			<choose>
@@ -42,7 +49,7 @@
 	</select>
 	
 	<!-- 查询多条记录 -->
-	<select id="findCondList" parameterType="map" resultType="com.carlinfo.parking.orders.pojo.AOrdersHistory">
+	<select id="findCondList" parameterType="map" resultMap="resultMap">
 		select * from order_history 
 		<where>
 			<!-- 当参数类型为map是,#{map的键},条件的判断也指的是map的键 -->

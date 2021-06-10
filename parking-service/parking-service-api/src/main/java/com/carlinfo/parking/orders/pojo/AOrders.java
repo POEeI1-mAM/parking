@@ -3,6 +3,7 @@ package com.carlinfo.parking.orders.pojo;
 import java.util.Date;
 
 import com.carlinfo.parking.users.pojo.AAdminsEnum;
+import com.carlinfo.parking.users.pojo.AUsers;
 
 /**
  * 订单的POJO
@@ -35,10 +36,23 @@ public class AOrders
 	/* 字符串描述 */
 	private String payTypeStr;
 	private String statusStr ; 
+	
+	/* 关联关系 */
+	private AUsers users; 
 
 	public int getId()
 	{
 		return id;
+	}
+
+	public AUsers getUsers()
+	{
+		return users;
+	}
+
+	public void setUsers(AUsers users)
+	{
+		this.users = users;
 	}
 
 	public void setId(int id)
