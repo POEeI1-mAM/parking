@@ -10,7 +10,7 @@ import com.carlinfo.parking.orders.pojo.AOrdersHistory;
 
 /**
  * 订单模块的Service
- * @author wangshMac
+ * @author 张培基
  *
  */
 public interface IOrdersService

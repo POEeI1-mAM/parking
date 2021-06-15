@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 文件工具类
- * @author wangshMac
+ * @author 张培基
  *
  */
 @Component

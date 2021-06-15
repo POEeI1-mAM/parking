@@ -16,7 +16,7 @@ import java.util.Map.Entry;
 
 /**
  * http的工具类
- * @author wangshMac
+ * @author 张培基
  */
 public class HttpUtil
 {

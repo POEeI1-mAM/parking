@@ -3,7 +3,7 @@ package com.carlinfo.common.util;
 /**
  * 分页的工具类 要想分页:得提供每页多少条和总条数,才可以完成分页,否则分不了页
  * 
- * @author wangshMac
+ * @author 张培基
  */
 public class PageInfoUtil
 {
